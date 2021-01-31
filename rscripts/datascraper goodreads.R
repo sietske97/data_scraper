@@ -17,9 +17,8 @@ titles <- books %>%
 
 rating <- books %>%
   html_nodes(".minirating") %>%
-  html_text %>%
-  str_sub(start = 2, end = 5) %>%
-  as.numeric()
+  html_text 
+rating <- as.numeric(gsub("*\\savg\\srating.*|*\\s*", "", rating))
 
 author <- books %>%
   html_nodes(".authorName span") %>%
