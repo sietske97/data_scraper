@@ -29,11 +29,7 @@ no_ratings <-books %>%
   html_nodes(".minirating") %>%
   html_text()
 
-no_ratings <- sub(".*rating — ", "", no_ratings)
-no_ratings <- sub("ratings", "", no_ratings)
-no_ratings <- sub(",","", no_ratings)
-no_ratings <- sub(",","", no_ratings)
-no_ratings <- as.numeric(sub(" ","", no_ratings))
+no_ratings1 <- gsub(".*rating\\s—\\s*|\\s*ratings.*$|,", "", no_ratings)
 
 
 url <- books %>%
